@@ -1,1 +1,1 @@
-# NewsTextClassfierSeventhProject
+# NewsTextClassifierSeventhProject
