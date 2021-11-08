@@ -22,11 +22,11 @@ def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", 
         all_news_stories_link = soup.find_all("div", class_="item-content") #finds all links with class "item-content"
         for news in all_news_stories_link: #goes to each link in each page of the category
             print(news.find("a", href=True)['href'])
-            news_page = requests.get(news.find("a", href=True)['href'] )
+            news_page = requests.get(URL +  news.find("a", href=True)['href'] )
             news_soup = BeautifulSoup(news_page.content, "html.parser")
             main_ = news_soup.find("div", class_="ratopati-table-border-layout") #gets the text which is in div with class "ratopati-border-layout"
             now = datetime.now()
-            filename = now.strftime("%d_%m_%y_%H_%M_%S")
+            filename = now.strftime("%d_%m_%y_%H_%M_%S") + news.find("a", href=True)['href'].split("/") [-1]
             with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: # --not a good way but it works
                 wp.write(main_.text)
 
@@ -40,7 +40,7 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
     next_page_link = soup.find("a", class_="next page-numbers") #find link to next page
     print(next_page_link['href'])
     i = 0
-    while next_page_link is not None and i != 20: #get only 20 pages of links
+    while next_page_link is not None and i != 30: #get only 20 pages of links
         all_link_stories = soup.select(".span-4 > .ok-news-post > a")
         for link in all_link_stories:
             print(link['href'])
@@ -60,4 +60,9 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
         print(next_page_link['href'])
         i += 1
     
-scrapperForOnlineKhabar()
+
+        
+    
+
+# scrapperForRatopati()
+# scrapperForOnlineKhabar()
