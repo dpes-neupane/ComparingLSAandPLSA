@@ -1,0 +1,33 @@
+
+एउटा साइबर सेक्योरिटी कम्पनीले हालै एन्ड्रोइड स्मार्टफोनमा एक मालवेयर पत्ता लगाएको छ । उक्त मालवेयरले २४ वटा एन्ड्रोइड एपमा आक्रमण गरेको छ । ती एपका प्रयोगकर्ता ४ लाख ७२ हजार भन्दा धेरै रहेका थिए । मालवेयरले ती एपमा आक्रमण गरेसँगै प्रयोगकर्ताका डाटा जोखिममा परेको खुलासा भएसँगै गुगलले ती एपहरुलाई प्ले स्टोरबाट हटाइदिएको छ ।
+गुगल प्ले स्टोरमा ती एप्सलाई एक नयाँ खाले ट्रोजनबाट संक्रमित पाइएको थियो । उक्त ट्रोजन भाइरसको नाम जोकर राखिएको छ ।
+उक्त ट्रोजले विज्ञापन देखाउने वेबसाइटसँग चुपचाप सम्पर्क गर्दछ र एप्स प्रयोगकर्ताका डाटा ती वेबसाइटसँग शेयर गर्दछ । एपमा छिरेको उक्त भाइरसले स्मार्टफोनमा रहेका एसएमएसका साथै फोनको कन्ट्याक्ट लिष्ट तथा डिभाइसमा रहेका अन्य खाले जानकारी तथा डाटाहरु समेत लिएर अरुलाई दिने गर्दछ । यतिमात्र होइन यसले मोबाइल फोनको आइएमइआई नम्बर तथा सिरियल नम्बर समेतको जानकारी चोरी गर्ने गर्दछ । यस्तो खतरनाक मालवेयरले आक्रमण गरी प्रयोगकर्ताका डाटा चोरी गरिरहेका एपहरु यी हुन्ः
+
+Advocate Wallpaper
+Age Face
+Altar Message
+Antivirus Security — Security Scan
+Beach Camera
+Board picture editing
+Certain Wallpaper
+Climate SMS
+Collate Face Scanner
+Cute Camera
+Dazzle Wallpaper
+Declare Message
+Display Camera
+Great VPN
+Humour Camera
+Ignite Clean
+Leaf Face Scanner
+Mini Camera
+Print Plant scan
+Rapid Face Scanner
+Reward Clean
+Ruddy SMS
+Soby Camera
+Spark Wallpaper
+
+समाचार अनुसार मोबाइलको डाटा चोर्ने संक्रमित एपहरुबाट हालसम्म विश्वका विभिन्न ३७ देशका प्रयोगकर्ता प्रभावित भएका छन् । जसमा Australia, Austria, Belgium, Brazil, China, Cyprus, Egypt, France, Germany, Ghana, Greece, Honduras, India, Indonesia, Ireland, Italy, Kuwait, Malaysia, Myanmar, Netherlands, Norway, Poland, Portugal, Qatar, Republic of Argentina, Serbia, Singapore, Slovenia, Spain, Sweden, Switzerland, Thailand, Turkey, Ukraine, United Arab Emirates, United Kingdom, and United States  रहेका छन् । एजेन्सीको सहयोगमा
+ 
+ 
