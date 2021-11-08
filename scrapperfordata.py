@@ -1,9 +1,7 @@
+import re
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
-import re
-
-
 
 def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", save_in="Literature"):
 
@@ -61,8 +59,13 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
         i += 1
     
 
+scrapperForOnlineKhabar()
+
+
+
         
     
 
 # scrapperForRatopati()
 # scrapperForOnlineKhabar()
+
