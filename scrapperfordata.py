@@ -67,8 +67,3 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
     
     
 
-
-
-# scrapperForRatopati(category="health", save_in="health")
-# scrapperForOnlineKhabar()
-# scrapperforSetopati()
