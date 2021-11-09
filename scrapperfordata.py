@@ -2,7 +2,7 @@ import re
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-
+from selenium.webdriver.chrome.service import Service
 from datetime import datetime
 from selenium import webdriver
 import re
@@ -70,26 +70,46 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
         i += 1
     
 
-    
-
-<<<<<<< HEAD
-=======
-
-
-# scrapperForRatopati(category="health", save_in="health")
-# scrapperForOnlineKhabar()
-# scrapperforSetopati()
-
-
-scrapperForOnlineKhabar()
-
-
-
+def scrapperForEkantipur(URL="https://ekantipur.com/", category="literature", save_in="Literature"):
+    if not os.path.isdir(".\\16NepaliNews\\16719\\raw\\" + save_in):
+        os.makedirs(".\\16NepaliNews\\16719\\raw\\" + save_in)
+    options = webdriver.ChromeOptions() 
+    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--incognito')
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(chrome_options=options, service=Service("C:\\chromedriver.exe"))
+    driver.get(URL + category)
+    last_height = driver.execute_script("return document.body.scrollHeight")
+    print(last_height)
+    i = 1
+    while  i < 40:
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        time.sleep(2)
+        new_height = driver.execute_script("return document.body.scrollHeight")
+        print(new_height)
+        if new_height == last_height:
+            break 
+        last_height = new_height 
+        i+=1
+    page_source = driver.page_source
+    soup = BeautifulSoup(page_source, 'html.parser')
+    main_tag = soup.select_one("main > section.listLayout")
+    links_parent = main_tag.find_all("h2")
+    for link_ in links_parent:
+        link = link_.find("a")['href']
+        if link[0] == "/":
+            link = "https://ekantipur.com" + link
+        print(link)
+        news_page = requests.get(link) 
+        news_soup = BeautifulSoup(news_page.content, 'html.parser')
+        news_text_parent = news_soup.select_one("main>article")
+        news_text_list = news_text_parent.find_all("p")
+        now = datetime.now()
+        filename = now.strftime("%d_%m_%y_%H_%M_%S") + link.split('/')[-1].split('.')[0]
+        with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
+            for para in news_text_list:
+                wp.write(para.text)
+            
         
-    
-
-# scrapperForRatopati()
-# scrapperForOnlineKhabar()
-
-
->>>>>>> d64169160c727f4cf4ea8ed82e9f2670f8767394
+       
+scrapperForEkantipur(category="business", save_in="Business")
