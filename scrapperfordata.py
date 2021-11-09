@@ -1,10 +1,14 @@
+import re
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
+
 from datetime import datetime
 from selenium import webdriver
 import re
 import time
 import os
+
 
 def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", save_in="Literature"):
 
@@ -65,6 +69,7 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
         print(next_page_link['href'])
         i += 1
     
+
     
 
 
@@ -72,3 +77,16 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
 # scrapperForRatopati(category="health", save_in="health")
 # scrapperForOnlineKhabar()
 # scrapperforSetopati()
+
+
+scrapperForOnlineKhabar()
+
+
+
+        
+    
+
+# scrapperForRatopati()
+# scrapperForOnlineKhabar()
+
+
