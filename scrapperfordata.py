@@ -111,6 +111,5 @@ def scrapperForEkantipur(URL="https://ekantipur.com/", category="literature", sa
                 wp.write(para.text)
             
         
-# scrapperForRatopati(category="economy", save_in="Business")  
-# scrapperForEkantipur(category="business", save_in="Business")
-# scrapperForOnlineKhabar(category="business", save_in="Business")
+       
+
