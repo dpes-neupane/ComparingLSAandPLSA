@@ -25,7 +25,7 @@ def forReporters(URL = "https://www.reportersnepal.com/", category = "interview"
             news_text = news_soup.find("article", class_=re.compile("post-entry")) #the divs with news text all belong to this class but also have others classes assigned to them
 ##            print(news_text.text)
             now = datetime.now()
-            filename = now.strftime("%d_%m_%y_%H_%M_%S") + link['href'][-6:]
+            filename = now.strftime("%d_%m_%y_%H_%M_%S") + link['href'][-6:] + "reprtrnep"
             
             with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
                 wp.write(news_text.text)
@@ -37,4 +37,4 @@ def forReporters(URL = "https://www.reportersnepal.com/", category = "interview"
         print(next_page_link['href'])
         i += 1
 
-forReporters(category="health", save_in="health")    
+# forReporters(category="business", save_in="Business")    
