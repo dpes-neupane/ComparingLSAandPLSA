@@ -33,7 +33,7 @@ def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", 
             news_soup = BeautifulSoup(news_page.content, "html.parser")
             main_ = news_soup.find("div", class_="ratopati-table-border-layout") #gets the text which is in div with class "ratopati-border-layout"
             now = datetime.now()
-            filename = now.strftime("%d_%m_%y_%H_%M_%S") + news.find("a", href=True)['href'].split("/") [-1] + 'a'
+            filename = now.strftime("%d_%m_%y_%H_%M_%S") + news.find("a", href=True)['href'].split("/") [-1] + 'ratopati'
             with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: # --not a good way but it works
                 wp.write(main_.text)
             time.sleep(1)#sleep to give way for same filename to be different -- can be changed to a better solution
@@ -58,7 +58,7 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
             news_text = news_soup.find("div", class_=re.compile("ok18-single-post-content-wrap")) #the divs with news text all belong to this class but also have others classes assigned to them
             # print(news_text.text)
             now = datetime.now()
-            filename = now.strftime("%d_%m_%y_%H_%M_%S") + link['href'][-6:]
+            filename = now.strftime("%d_%m_%y_%H_%M_%S") + link['href'][-6:] + "onlnkhbr"
             with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
                 wp.write(news_text.text)
 
@@ -82,7 +82,7 @@ def scrapperForEkantipur(URL="https://ekantipur.com/", category="literature", sa
     last_height = driver.execute_script("return document.body.scrollHeight")
     print(last_height)
     i = 1
-    while  i < 40:
+    while  i < 40: #change this to true if you need to go to the end of the page
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
         time.sleep(2)
         new_height = driver.execute_script("return document.body.scrollHeight")
@@ -105,11 +105,12 @@ def scrapperForEkantipur(URL="https://ekantipur.com/", category="literature", sa
         news_text_parent = news_soup.select_one("main>article")
         news_text_list = news_text_parent.find_all("p")
         now = datetime.now()
-        filename = now.strftime("%d_%m_%y_%H_%M_%S") + link.split('/')[-1].split('.')[0]
+        filename = now.strftime("%d_%m_%y_%H_%M_%S") + "kantipur" + link.split('/')[-1].split('.')[0] 
         with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
             for para in news_text_list:
                 wp.write(para.text)
             
         
-       
-scrapperForEkantipur(category="business", save_in="Business")
+# scrapperForRatopati(category="economy", save_in="Business")  
+# scrapperForEkantipur(category="business", save_in="Business")
+# scrapperForOnlineKhabar(category="business", save_in="Business")
