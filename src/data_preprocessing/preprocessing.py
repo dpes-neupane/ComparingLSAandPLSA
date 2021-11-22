@@ -122,8 +122,31 @@ class Preprocessing():
     
     
     
-    def delStopWords(self):
-        pass
+    def delStopwords(self, filename = '', text = '', next = False):
+        processed_text = []
+        with open('.\\stopwords.txt',encoding="utf8") as sw:
+            stopwords = (sw.read()).split()
+        
+        if not text:
+            with open(filename) as fp:
+                raw_text = fp.read()
+        else:
+            raw_text = text
+        
+        raw_text = raw_text.split()
+        for letters in raw_text:
+            if letters not in stopwords:
+                processed_text.append(letters)
+        
+        processed_text = ' '.join(processed_text)
+        if self.save_in:
+            with open(self.save_in, 'w', encoding='Utf-8') as wp:
+                wp.write(processed_text)
+        else:
+            print(processed_text, end= ' ')
+        
+        if next:
+            return processed_text
     
     
     
