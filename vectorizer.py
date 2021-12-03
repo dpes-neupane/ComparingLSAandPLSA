@@ -6,11 +6,12 @@ import numpy as np
 
 def vocabulary(input_list):
     vocab = {}
+    x=[1,0]
     for word in input_list:
         if word in vocab:
-            vocab[word][0] += 1
+            x[0]+=1
+            vocab[word]=x
         else:
-            x = [1, 0]
             vocab[word] = x
     return vocab
 
@@ -52,6 +53,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                             text == (fp.read()).split()
                             cnt = Counter(text)
+                            # print(cnt)
                             # indexing the word as we go for may be future
                             vocab[word][1] = indexes
                             if word in text:  # check if the word is in document
@@ -60,12 +62,14 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                             else:
                                 row.append(0)  # append 0 if not
             # making a multidimensional list for matrix generation
+            # print(row)
             mat.append(row)
             indexes += 1  # increase index for next word
     vector=np.array(mat)
     print(vector)
     print(vector.shape)  # returns a numpy matrix for easy usage
-    print(vocab["नेपाल"])
+    print(vocab["बर्ष"])
+    print(vector[1:2,:])
 documentTermMat()
     #     for word in vocab.keys():  # word in corpus
     #         print(word, end='\t')
