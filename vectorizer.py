@@ -51,7 +51,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     # no. of filename(documents)=no. of columns
                     for filename in os.listdir(dirs[i]):
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-                            text == (fp.read()).split()
+                            text = (fp.read()).split()
                             cnt = Counter(text)
                             # print(cnt)
                             # indexing the word as we go for may be future
