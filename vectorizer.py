@@ -43,7 +43,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text)
-        print(vocab)
+        print(len(vocab))
         for word in vocab.keys():  # no of word = no. of rows
             row = []  # initializing first row
             for i in range(len(dirs)):
@@ -61,7 +61,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                                 row.append(cnt[word])
                             else:
                                 row.append(0)  # append 0 if not
-                        mat.append(row)
+            mat.append(row)
             # making a multidimensional list for matrix generation
             # print(row)
 
