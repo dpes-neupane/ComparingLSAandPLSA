@@ -14,7 +14,7 @@ def vocabulary(input_list, vocab):
     return vocab
 
 
-def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preprocessed_test_data", input_text=''):
+def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     # initializing dictionary for unique words in the documents
     vocab = {}
     mat = []
@@ -41,7 +41,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text,vocab)
-
+        wordlist=vocab.keys()
         for i in range(len(dirs)):
             if os.path.isdir(dirs[i]):
                 # no. of filename(documents)=no. of columns
@@ -50,7 +50,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                         text = (fp.read()).split()
                         cnt = Counter(text)
-                        for word in vocab.keys():
+                        for word in wordlist:
                             if indexes<len(vocab):
                                 vocab[word][1]+=indexes
                                 indexes+=1
