@@ -61,9 +61,10 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                                 row.append(cnt[word])
                             else:
                                 row.append(0)  # append 0 if not
+                        mat.append(row)
             # making a multidimensional list for matrix generation
             # print(row)
-            mat.append(row)
+
             indexes += 1  # increase index for next word
     vector=np.array(mat)
     print(vector)
