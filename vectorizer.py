@@ -69,6 +69,10 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
     print(vocab['राष्ट्र'])
     print(vocab['अर्ब'])
     print(vector[:1,:30])
+    tran=vector.transpose()
+    print(tran)
+    print(tran.shape)
+
     #     for word in vocab.keys():  # no of word = no. of rows
     #         row = []  # initializing first row
     #         for i in range(len(dirs)):
