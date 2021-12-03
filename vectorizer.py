@@ -3,7 +3,6 @@ from collections import Counter
 import numpy as np
 # coding = utf-8
 
-
 def vocabulary(input_list, vocab):
     x=[]
     for word in input_list:
@@ -19,7 +18,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
     # initializing dictionary for unique words in the documents
     vocab = {}
     mat = []
-    indexes = 0
+    indexes=0
     if Path and not input_text:  # when path is given
         root = Path
         # list of dirs inside root
@@ -42,36 +41,61 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text,vocab)
-        print(len(vocab))
-        print(vocab['नेपाल'])
-        for word in vocab.keys():  # no of word = no. of rows
-            row = []  # initializing first row
-            for i in range(len(dirs)):
-                if os.path.isdir(dirs[i]):
-                    # no. of filename(documents)=no. of columns
-                    for filename in os.listdir(dirs[i]):
-                        with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-                            text = (fp.read()).split()
-                            cnt = Counter(text)
-                            # print(cnt)
-                            # indexing the word as we go for may be future
-                            vocab[word][1] = indexes
-                            if word in text:  # check if the word is in document
-                                # append the count of the word to row
+
+        for i in range(len(dirs)):
+            if os.path.isdir(dirs[i]):
+                # no. of filename(documents)=no. of columns
+                for filename in os.listdir(dirs[i]):
+                    row = []  # initializing first row
+                    with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
+                        text = (fp.read()).split()
+                        cnt = Counter(text)
+                        for word in vocab.keys():
+                            if indexes<len(vocab):
+                                vocab[word][1]+=indexes
+                                indexes+=1
+                            if word in text:
                                 row.append(cnt[word])
                             else:
-                                row.append(0)  # append 0 if not
-            mat.append(row)
-            # making a multidimensional list for matrix generation
-            # print(row)
-
-            indexes += 1  # increase index for next word
+                                row.append(0)
+                    mat.append(row)
     vector=np.array(mat)
+    # print(vocab)
     print(vector)
     print(vector.shape)  # returns a numpy matrix for easy usage
+    print(len(vocab))
+    print(vocab['नेपाल'])
     print(vocab["बर्ष"])
-    print(vector[157:158,:])
-documentTermMat()
+    print(vocab['राष्ट्र'])
+    print(vocab['अर्ब'])
+    print(vector[:1,:30])
+    #     for word in vocab.keys():  # no of word = no. of rows
+    #         row = []  # initializing first row
+    #         for i in range(len(dirs)):
+    #             if os.path.isdir(dirs[i]):
+    #                 # no. of filename(documents)=no. of columns
+    #                 for filename in os.listdir(dirs[i]):
+    #                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
+    #                         text = (fp.read()).split()
+    #                         cnt = Counter(text)
+    #                         # print(cnt)
+    #                         # indexing the word as we go for may be future
+    #                         vocab[word][1] = indexes
+    #                         if word in text:  # check if the word is in document
+    #                             # append the count of the word to row
+    #                             row.append(cnt[word])
+    #                         else:
+    #                             row.append(0)  # append 0 if not
+    #         mat.append(row)
+    #         # making a multidimensional list for matrix generation
+    #         # print(row)
+
+    #         indexes += 1  # increase index for next word
+    # vector=np.array(mat)
+    # print(vector)
+    # print(vector.shape)  # returns a numpy matrix for easy usage
+    # print(vocab["बर्ष"])
+    # print(vector[157:158,:])
     #     for word in vocab.keys():  # word in corpus
     #         print(word, end='\t')
 
@@ -134,3 +158,7 @@ documentTermMat()
 #         print('\n')
 
 #     fp.write("\n")
+
+
+
+documentTermMat()
