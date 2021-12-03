@@ -6,12 +6,12 @@ import numpy as np
 
 def vocabulary(input_list):
     vocab = {}
-    x=[1,0]
+    x=[]
     for word in input_list:
         if word in vocab:
-            x[0]+=1
-            vocab[word]=x
+            vocab[word][0]+=1
         else:
+            x=[1,0]
             vocab[word] = x
     return vocab
 
@@ -43,7 +43,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text)
-
+        print(vocab)
         for word in vocab.keys():  # no of word = no. of rows
             row = []  # initializing first row
             for i in range(len(dirs)):
