@@ -4,8 +4,7 @@ import numpy as np
 # coding = utf-8
 
 
-def vocabulary(input_list):
-    vocab = {}
+def vocabulary(input_list, vocab):
     x=[]
     for word in input_list:
         if word in vocab:
@@ -35,15 +34,16 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
 
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                         text = (fp.read()).split()  # list of an article
-                        vocab = vocabulary(text)
+                        vocab = vocabulary(text,vocab)
 
             else:  # if not directory
 
                 with open(dirs[i], encoding='utf-8') as fp:
                     text = (fp.read()).split()
 
-                    vocab = vocabulary(text)
+                    vocab = vocabulary(text,vocab)
         print(len(vocab))
+        print(vocab['नेपाल'])
         for word in vocab.keys():  # no of word = no. of rows
             row = []  # initializing first row
             for i in range(len(dirs)):
@@ -70,7 +70,7 @@ def documentTermMat(Path=r"E:\Project\NewsTextClassifierSeventhProject\preproces
     print(vector)
     print(vector.shape)  # returns a numpy matrix for easy usage
     print(vocab["बर्ष"])
-    print(vector[1:2,:])
+    print(vector[157:158,:])
 documentTermMat()
     #     for word in vocab.keys():  # word in corpus
     #         print(word, end='\t')
