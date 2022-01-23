@@ -24,14 +24,16 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
         root = Path
         # list of dirs inside root
         dirs = [os.path.join(root, path) for path in os.listdir(root)]
-        # print(dirs)
+        num=0
         for i in range(len(dirs)):  # [education,health,sports,.....]
-
+            label=dirs[i][25:]
+            # print(label)
             if os.path.isdir(dirs[i]):  # if directory
 
                 # education>>list of files(~2500)
                 number_of_files = len(os.listdir(dirs[i]))
-                print("category",i,": ",number_of_files)
+                num+=number_of_files
+                print(label,i,": ",num)
                 for filename in os.listdir(dirs[i]):
 
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
