@@ -18,7 +18,7 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     # initializing dictionary for unique words in the documents
     vocab = {}
     mat = []
-    indexes=0
+    # indexes=0
     if Path and not input_text:  # when path is given
         root = Path
         # list of dirs inside root
@@ -42,6 +42,7 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
 
                     vocab = vocabulary(text,vocab)
         wordlist=vocab.keys()
+        print(type(wordlist))
         for i in range(len(dirs)):
             if os.path.isdir(dirs[i]):
                 # no. of filename(documents)=no. of columns
@@ -50,12 +51,12 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                         text = (fp.read()).split()
                         cnt = Counter(text)
-                        for word in wordlist:
-                            if indexes<len(vocab):
-                                vocab[word][1]+=indexes
-                                indexes+=1
-                            if word in text:
-                                row.append(cnt[word])
+                        for i in range(len(wordlist)):
+                            if i<len(vocab):
+                                vocab[wordlist[i]][1]=i
+
+                            if wordlist[i] in text:
+                                row.append(cnt[wordlist[i]])
                             else:
                                 row.append(0)
                     mat.append(row)
@@ -73,95 +74,6 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     print(tran)
     print(tran.shape)
 
-    #     for word in vocab.keys():  # no of word = no. of rows
-    #         row = []  # initializing first row
-    #         for i in range(len(dirs)):
-    #             if os.path.isdir(dirs[i]):
-    #                 # no. of filename(documents)=no. of columns
-    #                 for filename in os.listdir(dirs[i]):
-    #                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         cnt = Counter(text)
-    #                         # print(cnt)
-    #                         # indexing the word as we go for may be future
-    #                         vocab[word][1] = indexes
-    #                         if word in text:  # check if the word is in document
-    #                             # append the count of the word to row
-    #                             row.append(cnt[word])
-    #                         else:
-    #                             row.append(0)  # append 0 if not
-    #         mat.append(row)
-    #         # making a multidimensional list for matrix generation
-    #         # print(row)
-
-    #         indexes += 1  # increase index for next word
-    # vector=np.array(mat)
-    # print(vector)
-    # print(vector.shape)  # returns a numpy matrix for easy usage
-    # print(vocab["बर्ष"])
-    # print(vector[157:158,:])
-    #     for word in vocab.keys():  # word in corpus
-    #         print(word, end='\t')
-
-    #         for i in range(len(dirs)):
-
-    #             if os.path.isdir(dirs[i]):
-
-    #                 for filename in os.listdir(dirs[i]):
-    #                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         indexes = 0
-    #                         # to count number of words in document
-    #                         cnt = Counter(text)
-    #                         vocab[word][1] = indexes
-    #                         indexes += 1
-
-    #             else:
-
-    #                 for i in range(len(dirs)):
-
-    #                     with open(dirs[i], encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         # to count number of words in document
-    #                         cnt = Counter(text)
-    #                         print(cnt[word], end='\t')
-    #         print('\n')
-
-# root=r'E:\Project\NewsTextClassifierSeventhProject\16NepaliNews\raw'
-# dirs=[os.path.join(root, path) for path in os.listdir(root)]
-# print(dirs)
-# with open("text.csv", "w") as fp:
-#     fp.write("s.n.")
-#     for i in range(len(dirs)):
-#         for filename in os.listdir(dirs[i]):
-#             fp.write(',')
-#             fp.write(filename)
-#     for word in vocab.keys():  # word in corpus
-#         print(word, end = '\t')
-
-#         for i in range(len(dirs)):
-
-#             if os.path.isdir(dirs[i]):
-
-#                 for filename in os.listdir(dirs[i]):
-
-#                     with open(os.path.join(dirs[i], filename), encoding = 'utf-8') as fp:
-#                         text=(fp.read()).split()
-#                         # to count number of words in document
-#                         cnt=Counter(text)
-#                         print(cnt[word], end = '\t')
-#             else:
-
-#                 for i in range(len(dirs)):
-
-#                     with open(dirs[i], encoding = 'utf-8') as fp:
-#                         text=(fp.read()).split()
-#                         # to count number of words in document
-#                         cnt=Counter(text)
-#                         print(cnt[word], end = '\t')
-#         print('\n')
-
-#     fp.write("\n")
 
 
 
