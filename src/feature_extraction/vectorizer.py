@@ -58,9 +58,9 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                         text = (fp.read()).split()
                         cnt = Counter(text)
+                        # print(cnt['ट्रेजरी'])
                         for x in range(len(wordlist)):
-                            if x<len(vocab):
-                                vocab[wordlist[x]][1]+=x
+                            vocab[wordlist[x]][1]=x
                             if wordlist[x] in text:
                                 row.append(cnt[wordlist[x]])
                             else:
@@ -70,18 +70,24 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     # print(vocab)
     print(vec)
     print(vec.shape)  # returns a numpy matrix for easy usage
+    print(vec[0,:50])
     print(len(vocab))
-    # print(vocab['नेपाल'])
-    # print(vocab["बर्ष"])
-    # print(vocab['राष्ट्र'])
+    print(vocab['नेपाल'])
+    print(vec.sum(axis=0)[:10])
+    print(vocab["बैंकले"])
+    print(vocab["जारी"])
+
+    print(vocab['राष्ट्र'])
     # print(vocab['अर्ब'])
 
-    tf= vec/vec.sum(axis=0)
-    print(vec)
-    print(tf)
-    y=tf.shape[0]
-    print(y)
+    # tf= vec/vec.sum(axis=0)
+    # print(vec)
+    # print(tf)
+    # y=tf.shape[0]
+    # print(y)
 
+    print(wordlist[:10])
+    print(cnt['ट्रेजरी'])
 
 documentTermMat()
 print(np.log2(4))
