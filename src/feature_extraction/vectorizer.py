@@ -1,5 +1,6 @@
 import os
 from collections import Counter
+from matplotlib.pyplot import axis
 import numpy as np
 # coding = utf-8
 
@@ -59,110 +60,20 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                             else:
                                 row.append(0)
                     mat.append(row)
-    vector=np.array(mat)
+    vec=np.array(mat)
     # print(vocab)
-    print(vector)
-    print(vector.shape)  # returns a numpy matrix for easy usage
+    print(vec)
+    print(vec.shape)  # returns a numpy matrix for easy usage
     print(len(vocab))
-    print(vocab['नेपाल'])
-    print(vocab["बर्ष"])
-    print(vocab['राष्ट्र'])
-    print(vocab['अर्ब'])
-    print(vector[:1,:30])
-    tran=vector.transpose()
-    print(tran)
-    print(tran.shape)
-
-    #     for word in vocab.keys():  # no of word = no. of rows
-    #         row = []  # initializing first row
-    #         for i in range(len(dirs)):
-    #             if os.path.isdir(dirs[i]):
-    #                 # no. of filename(documents)=no. of columns
-    #                 for filename in os.listdir(dirs[i]):
-    #                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         cnt = Counter(text)
-    #                         # print(cnt)
-    #                         # indexing the word as we go for may be future
-    #                         vocab[word][1] = indexes
-    #                         if word in text:  # check if the word is in document
-    #                             # append the count of the word to row
-    #                             row.append(cnt[word])
-    #                         else:
-    #                             row.append(0)  # append 0 if not
-    #         mat.append(row)
-    #         # making a multidimensional list for matrix generation
-    #         # print(row)
-
-    #         indexes += 1  # increase index for next word
-    # vector=np.array(mat)
-    # print(vector)
-    # print(vector.shape)  # returns a numpy matrix for easy usage
+    # print(vocab['नेपाल'])
     # print(vocab["बर्ष"])
-    # print(vector[157:158,:])
-    #     for word in vocab.keys():  # word in corpus
-    #         print(word, end='\t')
+    # print(vocab['राष्ट्र'])
+    # print(vocab['अर्ब'])
 
-    #         for i in range(len(dirs)):
-
-    #             if os.path.isdir(dirs[i]):
-
-    #                 for filename in os.listdir(dirs[i]):
-    #                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         indexes = 0
-    #                         # to count number of words in document
-    #                         cnt = Counter(text)
-    #                         vocab[word][1] = indexes
-    #                         indexes += 1
-
-    #             else:
-
-    #                 for i in range(len(dirs)):
-
-    #                     with open(dirs[i], encoding='utf-8') as fp:
-    #                         text = (fp.read()).split()
-    #                         # to count number of words in document
-    #                         cnt = Counter(text)
-    #                         print(cnt[word], end='\t')
-    #         print('\n')
-
-# root=r'E:\Project\NewsTextClassifierSeventhProject\16NepaliNews\raw'
-# dirs=[os.path.join(root, path) for path in os.listdir(root)]
-# print(dirs)
-# with open("text.csv", "w") as fp:
-#     fp.write("s.n.")
-#     for i in range(len(dirs)):
-#         for filename in os.listdir(dirs[i]):
-#             fp.write(',')
-#             fp.write(filename)
-#     for word in vocab.keys():  # word in corpus
-#         print(word, end = '\t')
-
-#         for i in range(len(dirs)):
-
-#             if os.path.isdir(dirs[i]):
-
-#                 for filename in os.listdir(dirs[i]):
-
-#                     with open(os.path.join(dirs[i], filename), encoding = 'utf-8') as fp:
-#                         text=(fp.read()).split()
-#                         # to count number of words in document
-#                         cnt=Counter(text)
-#                         print(cnt[word], end = '\t')
-#             else:
-
-#                 for i in range(len(dirs)):
-
-#                     with open(dirs[i], encoding = 'utf-8') as fp:
-#                         text=(fp.read()).split()
-#                         # to count number of words in document
-#                         cnt=Counter(text)
-#                         print(cnt[word], end = '\t')
-#         print('\n')
-
-#     fp.write("\n")
-
-
-
+    tf= vec/vec.sum(axis=0)
+    print(vec)
+    print(tf)
+    y=tf.shape[0]
+    print(y)
+    
 documentTermMat()
