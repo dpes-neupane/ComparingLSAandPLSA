@@ -42,6 +42,7 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
 
                     vocab = vocabulary(text,vocab)
         wordlist=list(vocab.keys())
+        print(type(wordlist))
         for i in range(len(dirs)):
             if os.path.isdir(dirs[i]):
                 # no. of filename(documents)=no. of columns
