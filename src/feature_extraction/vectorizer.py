@@ -82,4 +82,6 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     y=tf.shape[0]
     print(y)
 
+
 documentTermMat()
+print(np.log2(4))
