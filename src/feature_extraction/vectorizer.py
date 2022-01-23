@@ -30,6 +30,8 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
             if os.path.isdir(dirs[i]):  # if directory
 
                 # education>>list of files(~2500)
+                number_of_files = len(os.listdir(dirs[i]))
+                print("category",i,": ",number_of_files)
                 for filename in os.listdir(dirs[i]):
 
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
@@ -42,6 +44,8 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text,vocab)
+
+
         wordlist=list(vocab.keys())
         print(type(wordlist))
         for i in range(len(dirs)):
@@ -53,7 +57,7 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                         text = (fp.read()).split()
                         cnt = Counter(text)
                         for x in range(len(wordlist)):
-                            if i<len(vocab):
+                            if x<len(vocab):
                                 vocab[wordlist[x]][1]+=x
                             if wordlist[x] in text:
                                 row.append(cnt[wordlist[x]])
@@ -75,5 +79,5 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     print(tf)
     y=tf.shape[0]
     print(y)
-    
+
 documentTermMat()
