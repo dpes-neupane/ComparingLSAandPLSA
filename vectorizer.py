@@ -1,6 +1,8 @@
 import os
 from collections import Counter
 import numpy as np
+from nepali_stemmer.stemmer import NepStemmer
+
 # coding = utf-8
 
 def vocabulary(input_list, vocab):
@@ -41,8 +43,8 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                     text = (fp.read()).split()
 
                     vocab = vocabulary(text,vocab)
-        wordlist=vocab.keys()
-        print(type(wordlist))
+        wordlist=list(vocab.keys())
+        
         for i in range(len(dirs)):
             if os.path.isdir(dirs[i]):
                 # no. of filename(documents)=no. of columns
@@ -51,12 +53,12 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
                     with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                         text = (fp.read()).split()
                         cnt = Counter(text)
-                        for i in range(len(wordlist)):
-                            if i<len(vocab):
-                                vocab[wordlist[i]][1]=i
+                        for j in range(len(wordlist)):
+                            if j<len(vocab):
+                                vocab[wordlist[j]][1]=j
 
-                            if wordlist[i] in text:
-                                row.append(cnt[wordlist[i]])
+                            if wordlist[j] in text:
+                                row.append(cnt[wordlist[j]])
                             else:
                                 row.append(0)
                     mat.append(row)
@@ -78,3 +80,21 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
 
 
 documentTermMat()
+
+
+
+
+def stemmData(path=".\\preprocessed_test_data"):
+    nepstem = NepStemmer()
+    dirs = [os.path.join(path, p) for p in os.listdir(path)]
+    for folder in dirs:
+        for file in os.listdir(folder):
+            file = os.path.join(folder, file)
+            with open(file, encoding="utf-8") as fp:
+                text = fp.read()
+                text = nepstem.stem(text)
+            with open(file, "w", encoding="utf-8") as wp:
+                wp.write(text)
+
+            
+            
