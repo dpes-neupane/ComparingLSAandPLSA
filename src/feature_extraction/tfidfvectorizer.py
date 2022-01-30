@@ -10,7 +10,22 @@ class TfidfVectorizer():
         self.vocab = {}
         self.vec = None
         self.result = None
+        self.label_dict = {}
 
+
+    def label(self, root = '.\\preprocessed_test_data\\'):
+        # root = '.\\16NepaliNews\\raw\\'
+        # root = '.\\preprocessed_test_data\\'
+        dirs = os.listdir(root)
+        self.label_dict = dict.fromkeys(dirs,None)
+        start = 1
+        for dir in dirs:
+            file_count= len(os.listdir(os.path.join(root,dir)))
+            # print(file_count)
+            # file.append(file_count)
+
+            self.label_dict[dir] = [start,file_count+start-1]
+            start+=file_count
 
 
     def vocabulary(self, input_list, vocab)-> dict:
@@ -93,9 +108,18 @@ class TfidfVectorizer():
 obj = TfidfVectorizer()
 obj.documentTermMat()
 obj.tf_idf()
+obj.label()
 print(obj.vocab)
 print('.'*100)
 print(obj.vec)
 print('.'*100)
 print(obj.result)
+print('.'*100)
+print(obj.label_dict)
+
+
+
+
+
+
 
