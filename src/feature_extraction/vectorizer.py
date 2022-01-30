@@ -19,20 +19,20 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     # initializing dictionary for unique words in the documents
     vocab = {}
     mat = []
-    indexes=0
+    # indexes=0
     if Path and not input_text:  # when path is given
         root = Path
         # list of dirs inside root
         dirs = [os.path.join(root, path) for path in os.listdir(root)]
-        num=0
+        # num=0
         for i in range(len(dirs)):  # [education,health,sports,.....]
-            label=dirs[i][25:]
+            # label=dirs[i][25:]
             # print(label)
             if os.path.isdir(dirs[i]):  # if directory
 
                 # education>>list of files(~2500)
-                number_of_files = len(os.listdir(dirs[i]))
-                num+=number_of_files
+                # number_of_files = len(os.listdir(dirs[i]))
+                # num+=number_of_files
                 # print(label,i,": ",num)
                 for filename in os.listdir(dirs[i]):
 
@@ -71,15 +71,7 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
     print(vec)
 
     print('\n'*5)
-    tf=vec/vec.sum(axis=1)[:,np.newaxis]
-    idf=np.log(vec.shape[0]/np.count_nonzero(vec,axis=0))
-# print(vec.shape[0])
-    print(tf)
-    print('\n'*5)
-    print(idf)
-    print('\n'*5)
-    tf_idf=tf*idf
-    print(tf_idf[:5,:20])
+
 
     # print(vec.shape)  # returns a numpy matrix for easy usage
     # print(vec[0,:50])
@@ -103,3 +95,13 @@ def documentTermMat(Path=".\\preprocessed_test_data", input_text=''):
 
 documentTermMat()
 print(np.log2(4))
+
+def tf_idf(vec):
+    tf=vec/vec.sum(axis=1)[:,np.newaxis]
+    idf=np.log(vec.shape[0]/np.count_nonzero(vec,axis=0))
+    print(tf)
+    print('\n'*5)
+    print(idf)
+    print('\n'*5)
+    tf_idf=tf*idf
+    print(tf_idf[:5,:20])
