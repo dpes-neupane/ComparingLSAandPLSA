@@ -4,7 +4,9 @@ from matplotlib.pyplot import axis
 import numpy as np
 
 
-'''
+
+class TfidfVectorizer():
+    '''
 TfidfVectorizer is a class that following methods:
     1. label:
         - It basically labels the documents of which category it is. 
@@ -19,7 +21,6 @@ TfidfVectorizer is a class that following methods:
         - It gives 2D numpy array that corresponds to document-term matrix where each document represent unique rows and each term represent unique column.
         - also indexes the word.
 '''
-class TfidfVectorizer():
     def __init__(self):
         # input_list is the list of unique words.
         self.input_list = []
@@ -166,17 +167,20 @@ class TfidfVectorizer():
         self.result=tf*idf
         
 
-obj = TfidfVectorizer()
-obj.documentTermMat()
-obj.tf_idf()
-obj.label()
-print(obj.vocab)
-print('.'*100)
-print(obj.vec)
-print('.'*100)
-print(obj.result)
-print('.'*100)
-print(obj.label_dict)
+if __name__ == "__main__":
+
+    obj = TfidfVectorizer()
+    # print(obj.__doc__)
+    obj.documentTermMat()
+    obj.tf_idf()
+    obj.label()
+    print(obj.vocab)
+    # print('.'*100)
+    # print(obj.vec)
+    # print('.'*100)
+    # print(obj.result)
+    # print('.'*100)
+    # print(obj.label_dict)
 
 
 
