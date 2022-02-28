@@ -25,7 +25,7 @@ def scrapperForSetopati(URL = 'https://setopati.com/', category = 'social', save
             news_text = news_soup.find("div", class_='editor-box')
             now = datetime.now()
             filename = "setopati" + link['href'][-6:] + now.strftime("%d_%m_%y_%H_%M_%S")+ link['href'][-6:]
-            with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp:
+            with open("..\\16NepaliNews\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp:
                 wp.write(news_text.text)
         
         next_page = requests.get(next_page_link['href']) #go to next page
@@ -35,3 +35,4 @@ def scrapperForSetopati(URL = 'https://setopati.com/', category = 'social', save
         print(next_page_link['href'])
         i += 1
         
+# scrapperForSetopati(category='ghumphir',save_in='Tourism')
