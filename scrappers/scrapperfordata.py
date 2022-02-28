@@ -19,8 +19,8 @@ def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", 
     total_pages_raw_text = soup.find("div", class_="page-numbers disabled") #finds the tatal pages element
     total_pages = total_pages_raw_text.text.split()[-1]
     print(total_pages)
-    if not os.path.isdir(".\\16NepaliNews\\16719\\raw\\" + save_in):
-        os.makedirs(".\\16NepaliNews\\16719\\raw\\" + save_in)
+    if not os.path.isdir(".\\16NepaliNews\\raw\\" + save_in):
+        os.makedirs(".\\16NepaliNews\\raw\\" + save_in)
     i = 0
     for _ in range(1, int(total_pages)):# go to each page 
         next_page_link = soup.find("a", class_="next page-numbers", href=True)
@@ -36,14 +36,13 @@ def scrapperForRatopati(URL = "https://ratopati.com/", category = "literature", 
             main_ = news_soup.find("div", class_="ratopati-table-border-layout") #gets the text which is in div with class "ratopati-border-layout"
             now = datetime.now()
             filename = now.strftime("%d_%m_%y_%H_%M_%S") + link.split("/") [-1] + link.split("/")[1] + 'ratopati'
-            with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: # --not a good way but it works
+            with open(".\\16NepaliNews\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: # --not a good way but it works
                 wp.write(main_.text)
                 i += 1 
         if i >= 500:
             break #gets ~500 texts 
             # time.sleep(1)#sleep to give way for same filename to be different -- can be changed to a better solution
 
-    
 def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "literature", save_in="Literature"):
     page = requests.get(URL +"content/" + category) #can have different urls for different categories, so change as per need
 
@@ -52,9 +51,9 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
     next_page_link = soup.find("a", class_="next page-numbers") #find link to next page
     print(next_page_link['href'])
     i = 0
-    if not os.path.isdir(".\\16NepaliNews\\16719\\raw\\" + save_in):
-        os.makedirs(".\\16NepaliNews\\16719\\raw\\" + save_in)
-    while next_page_link is not None and i <= 500: #get ~500 news texts of links
+    if not os.path.isdir(".\\16NepaliNews\\raw\\" + save_in):
+        os.makedirs(".\\16NepaliNews\\raw\\" + save_in)
+    while next_page_link is not None and i <= 2000: #get ~500 news texts of links
         all_link_stories = soup.select(".span-4 > .ok-news-post > a")
         for link in all_link_stories:
             print(link['href'])
@@ -64,7 +63,7 @@ def scrapperForOnlineKhabar(URL = "https://www.onlinekhabar.com/", category = "l
             # print(news_text.text)
             now = datetime.now()
             filename = now.strftime("%d_%m_%y_%H_%M_%S") + link['href'][-6:] + "onlnkhbr"
-            with open(".\\16NepaliNews\\16719\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
+            with open(".\\16NepaliNews\\raw\\" + save_in + "\\" + filename + ".txt", 'w', encoding='utf-8') as wp: #saving 
                 wp.write(news_text.text)
                 i += 1
         next_page = requests.get(next_page_link['href']) #go to next page
@@ -117,4 +116,6 @@ def scrapperForEkantipur(URL="https://ekantipur.com/", category="literature", sa
             
         
        
+# scrapperForRatopati(category="tourism", save_in="Tourism")
+scrapperForOnlineKhabar(category="tourism", save_in="Tourism")
 
