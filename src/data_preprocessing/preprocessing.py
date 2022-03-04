@@ -55,8 +55,7 @@ class Preprocessing():
         if self.output: print(processed_text)                      
 
                         
-        else: 
-            print(processed_text)
+        
                  
         if next:
             return processed_text       
@@ -82,7 +81,7 @@ class Preprocessing():
             with open(self.save_in, 'w', encoding= "utf-8") as wp:
                 wp.write(processed_text)
                         
-        else: 
+        if self.output:
             print(processed_text)           
         if next:
             return processed_text      
@@ -112,7 +111,7 @@ class Preprocessing():
         if self.save_in:
             with open(self.save_in, 'w', encoding= "utf-8") as wp:
                 wp.write(processed_text)
-        else:
+        if self.output:
             print(processed_text)
 
         if next:
@@ -124,7 +123,8 @@ class Preprocessing():
     
     def delStopwords(self, filename = '', text = '', next = False):
         processed_text = []
-        with open('.\\stopwords.txt',encoding="utf8") as sw:
+        with open('./stopwords.txt',encoding="utf8") as sw:
+        # with open('./stopwords.txt',encoding="utf8") as sw: for windows os
             stopwords = (sw.read()).split()
         
         if not text:
@@ -142,7 +142,7 @@ class Preprocessing():
         if self.save_in:
             with open(self.save_in, 'w', encoding='Utf-8') as wp:
                 wp.write(processed_text)
-        else:
+        if self.output:
             print(processed_text, end= ' ')
         
         if next:
