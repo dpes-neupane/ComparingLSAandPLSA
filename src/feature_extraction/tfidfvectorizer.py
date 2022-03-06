@@ -38,7 +38,7 @@ TfidfVectorizer is a class that following methods:
         self.label_dict = {}
 
 
-    def label(self, root = '.\\preprocessed_test_data\\'):
+    def label(self, root = '.\\Preprocessed\\'):
         
         # root = '.\\16NepaliNews\\raw\\'
         # root = '.\\preprocessed_test_data\\'
@@ -59,10 +59,14 @@ TfidfVectorizer is a class that following methods:
             start+=file_count
 
 
-    def vocabulary(self, input_list, vocab)-> dict:
-
-        self.input_list = input_list
-        self.vocab = vocab
+    def vocabulary(self,  input_list="",  path="")-> dict:
+        if path != "":
+            with open(path, "r", encoding="utf-8" ) as fp:
+                text = fp.read()
+            self.input_list = text.split()
+        else:
+            self.input_list = input_list
+       
         x=[]
 
         for word in self.input_list:
@@ -74,9 +78,9 @@ TfidfVectorizer is a class that following methods:
                 x=[1,0]
                 self.vocab[word] = x
                 
-        return self.vocab
+        
     
-    def documentTermMat(self, Path=".\\preprocessed_test_data", input_text=''):
+    def documentTermMat(self, Path=".\\Preprocessed", input_text=''):
         # initializing empty dictionary for unique words in the documents
         self.vocab = {}
 
@@ -87,13 +91,13 @@ TfidfVectorizer is a class that following methods:
             root = Path
             # list of dirs inside root
             dirs = [os.path.join(root, path) for path in os.listdir(root)]
-            
-            for i in range(len(dirs)):  # [education,health,sports,.....]
+            print(dirs)
+            for i in range(1):  # [education,health,sports,.....]
                 
                 # if directory
                 if os.path.isdir(dirs[i]):  
 
-                    for filename in os.listdir(dirs[i]):
+                    for filename in os.listdir(dirs[i])[:1]:
 
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
 
@@ -101,7 +105,7 @@ TfidfVectorizer is a class that following methods:
                             text = (fp.read()).split() 
 
                             #calling vocabulary method by passing text (list of words) and vocab as parameter. 
-                            self.vocab = self.vocabulary(text,self.vocab)
+                            self.vocabulary(text)
 
                 # if not directory
                 else:  
@@ -112,40 +116,40 @@ TfidfVectorizer is a class that following methods:
                         text = (fp.read()).split()
 
                         #calling vocabulary method by passing text (list of words) and vocab as parameter.
-                        self.vocab = self.vocabulary(text,self.vocab)
+                        self.vocabulary(text)
 
             #list of unique words
             wordlist=list(self.vocab.keys())
             
 
-            for i in range(len(dirs)):
+            # for i in range(len(dirs)):
 
-                # if directory
-                if os.path.isdir(dirs[i]):
+            #     # if directory
+            #     if os.path.isdir(dirs[i]):
 
-                    # no. of filename(documents)=no. of columns
-                    for filename in os.listdir(dirs[i]):
-                        row = []  # initializing first row
-                        with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
+            #         # no. of filename(documents)=no. of columns
+            #         for filename in os.listdir(dirs[i]):
+            #             row = []  # initializing first row
+            #             with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
 
-                            #list of an article
-                            text = (fp.read()).split()
-                            #initializing counter
-                            cnt = Counter(text)
+            #                 #list of an article
+            #                 text = (fp.read()).split()
+            #                 #initializing counter
+            #                 cnt = Counter(text)
                             
-                            for x in range(len(wordlist)):
+            #                 for x in range(len(wordlist)):
 
-                                # adding index of word in vocab dictionary
-                                self.vocab[wordlist[x]][1]=x
+            #                     # adding index of word in vocab dictionary
+            #                     self.vocab[wordlist[x]][1]=x
 
-                                if wordlist[x] in text:
-                                    row.append(cnt[wordlist[x]])
-                                else:
-                                    row.append(0)
-                        mat.append(row)
+            #                     if wordlist[x] in text:
+            #                         row.append(cnt[wordlist[x]])
+            #                     else:
+            #                         row.append(0)
+            #             mat.append(row)
 
         # numpy array of document-term matrix
-        self.vec=np.array(mat)
+        # self.vec=np.array(mat)
     
     
     def tf_idf(self):
@@ -172,8 +176,8 @@ if __name__ == "__main__":
     obj = TfidfVectorizer()
     # print(obj.__doc__)
     obj.documentTermMat()
-    obj.tf_idf()
-    obj.label()
+    # obj.tf_idf()
+    # obj.label()
     print(obj.vocab)
     # print('.'*100)
     # print(obj.vec)
