@@ -9,10 +9,10 @@ class TfidfVectorizer():
     '''
 TfidfVectorizer is a class that following methods:
     1. label:
-        - It basically labels the documents of which category it is. 
+        - It basically labels the documents of which category it is.
         - gives dictionary named label_dict
         - dictionary has values as: {'dir_name':[start_index,end_index]}
-    
+
     2. vocabulary:
         - method that returns a dictionary.
         - dictionary has values as: {'word':[count,index]}
@@ -34,12 +34,12 @@ TfidfVectorizer is a class that following methods:
         # result is the numpy array that contains tfidf vector.
         self.result = None
 
-        # label_dict is the dictionary that index a document 
+        # label_dict is the dictionary that index a document
         self.label_dict = {}
 
 
     def label(self, root = '.\\Preprocessed\\'):
-        
+
         # root = '.\\16NepaliNews\\raw\\'
         # root = '.\\preprocessed_test_data\\'
 
@@ -54,7 +54,7 @@ TfidfVectorizer is a class that following methods:
         for dir in dirs:
             #number of files in a dir
             file_count= len(os.listdir(os.path.join(root,dir)))
-            
+
             self.label_dict[dir] = [start,file_count+start-1]
             start+=file_count
 
@@ -66,7 +66,7 @@ TfidfVectorizer is a class that following methods:
             self.input_list = text.split()
         else:
             self.input_list = input_list
-       
+
         x=[]
 
         for word in self.input_list:
@@ -77,9 +77,9 @@ TfidfVectorizer is a class that following methods:
             else:
                 x=[1,0]
                 self.vocab[word] = x
-                
-        
-    
+
+
+
     def documentTermMat(self, Path=".\\Preprocessed", input_text=''):
         # initializing empty dictionary for unique words in the documents
         self.vocab = {}
@@ -87,28 +87,30 @@ TfidfVectorizer is a class that following methods:
         mat = []
 
         # when path is given
-        if Path and not input_text:  
+        if Path and not input_text:
             root = Path
             # list of dirs inside root
             dirs = [os.path.join(root, path) for path in os.listdir(root)]
             print(dirs)
-            for i in range(1):  # [education,health,sports,.....]
-                
-                # if directory
-                if os.path.isdir(dirs[i]):  
+            fol= len(dirs)
+            for i in range(fol):  # [education,health,sports,.....]
 
-                    for filename in os.listdir(dirs[i])[:1]:
+                # if directory
+                print(f"{i} of {fol}", end="\r")
+                if os.path.isdir(dirs[i]):
+
+                    for filename in os.listdir(dirs[i]):
 
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
 
                             # list of an article
-                            text = (fp.read()).split() 
+                            text = (fp.read()).split()
 
-                            #calling vocabulary method by passing text (list of words) and vocab as parameter. 
+                            #calling vocabulary method by passing text (list of words) and vocab as parameter.
                             self.vocabulary(text)
 
                 # if not directory
-                else:  
+                else:
 
                     with open(dirs[i], encoding='utf-8') as fp:
 
@@ -120,38 +122,44 @@ TfidfVectorizer is a class that following methods:
 
             #list of unique words
             wordlist=list(self.vocab.keys())
-            
 
-            # for i in range(len(dirs)):
 
-            #     # if directory
-            #     if os.path.isdir(dirs[i]):
+            for i in range(len(dirs)):
 
-            #         # no. of filename(documents)=no. of columns
-            #         for filename in os.listdir(dirs[i]):
-            #             row = []  # initializing first row
-            #             with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
+                # if directory
+                if os.path.isdir(dirs[i]):
+                    isnumber = len(os.listdir(dirs[i]))
+                    isnumbertotal = len(os.listdir(dirs[i]))
+                    # no. of filename(documents)=no. of columns
+                    for filename in os.listdir(dirs[i]):
 
-            #                 #list of an article
-            #                 text = (fp.read()).split()
-            #                 #initializing counter
-            #                 cnt = Counter(text)
-                            
-            #                 for x in range(len(wordlist)):
+                        row = []  # initializing first row
+                        with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
+                            # print(filename, end="\r")
+                            #list of an article
+                            text = (fp.read()).split()
+                            #initializing counter
+                            cnt = Counter(text)
 
-            #                     # adding index of word in vocab dictionary
-            #                     self.vocab[wordlist[x]][1]=x
+                            for x in range(len(wordlist)):
 
-            #                     if wordlist[x] in text:
-            #                         row.append(cnt[wordlist[x]])
-            #                     else:
-            #                         row.append(0)
-            #             mat.append(row)
+                                # adding index of word in vocab dictionary
+                                self.vocab[wordlist[x]][1]=x
+
+                                if wordlist[x] in text:
+                                    row.append(cnt[wordlist[x]])
+                                else:
+                                    row.append(0)
+                        hfcyvy ='\\'
+                        print(f'{isnumber} left of {isnumbertotal} of {dirs[i].split(hfcyvy)[1]}', end="\r")
+                        isnumber-=1
+                        mat.append(row)
+
 
         # numpy array of document-term matrix
-        # self.vec=np.array(mat)
-    
-    
+        self.vec=np.array(mat)
+
+
     def tf_idf(self):
         '''
             term-frequency (tf) =   (Number of repeatition of words in document)
@@ -169,7 +177,7 @@ TfidfVectorizer is a class that following methods:
         idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
 
         self.result=tf*idf
-        
+
 
 if __name__ == "__main__":
 
