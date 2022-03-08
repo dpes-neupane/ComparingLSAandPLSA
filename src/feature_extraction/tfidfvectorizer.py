@@ -91,16 +91,17 @@ TfidfVectorizer is a class that following methods:
             root = Path
             # list of dirs inside root
             dirs = [os.path.join(root, path) for path in os.listdir(root)]
-            print(dirs)
+            # print(dirs)
             fol= len(dirs)
             for i in range(fol):  # [education,health,sports,.....]
-
+                print(dirs[i])
                 # if directory
-                print(f"{i} of {fol}", end="\r")
+                # print(f"{i} of {fol} {dirs[i]}                     ", end="\r")
                 if os.path.isdir(dirs[i]):
-
-                    for filename in os.listdir(dirs[i]):
-
+                    files = os.listdir(dirs[i])
+                    print(files[0], len(files))
+                    for filename in files:
+                        print(filename)
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
 
                             # list of an article
@@ -122,36 +123,44 @@ TfidfVectorizer is a class that following methods:
 
             #list of unique words
             wordlist=list(self.vocab.keys())
+            unique_count = len(wordlist)
+            for x in range(unique_count):
+                self.vocab[wordlist[x]][1] = x
 
-
-            for i in range(len(dirs)):
+            for i in range(fol):
 
                 # if directory
                 if os.path.isdir(dirs[i]):
                     isnumber = len(os.listdir(dirs[i]))
                     isnumbertotal = len(os.listdir(dirs[i]))
                     # no. of filename(documents)=no. of columns
-                    for filename in os.listdir(dirs[i]):
+                    files = os.listdir(dirs[i])
+                    for filename in files:
 
-                        row = []  # initializing first row
+                        row = np.zeros(unique_count, dtype=np.int8)  # initializing first row
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
                             # print(filename, end="\r")
                             #list of an article
                             text = (fp.read()).split()
                             #initializing counter
                             cnt = Counter(text)
+                            # print(cnt)
+                            for key, value in cnt.items():
+                                # print(self.vocab[key][1], key)
+                                row[self.vocab[key][1]] = value
+                            # print(row)
+                            # for x in range(len(wordlist)):
 
-                            for x in range(len(wordlist)):
+                            #     # adding index of word in vocab dictionary
+                            #     self.vocab[wordlist[x]][1]=x
 
-                                # adding index of word in vocab dictionary
-                                self.vocab[wordlist[x]][1]=x
-
-                                if wordlist[x] in text:
-                                    row.append(cnt[wordlist[x]])
-                                else:
-                                    row.append(0)
+                            #     if wordlist[x] in text:
+                            #         row.append(cnt[wordlist[x]])
+                            #     else:
+                            #         row.append(0)
+                            
                         hfcyvy ='\\'
-                        print(f'{isnumber} left of {isnumbertotal} of {dirs[i].split(hfcyvy)[1]}', end="\r")
+                        print(f'{isnumber} left of {isnumbertotal} of {dirs[i].split(hfcyvy)[2]}                    ', end="\r")
                         isnumber-=1
                         mat.append(row)
 
@@ -183,14 +192,16 @@ if __name__ == "__main__":
 
     obj = TfidfVectorizer()
     # print(obj.__doc__)
-    obj.documentTermMat()
-    # obj.tf_idf()
+    obj.documentTermMat(Path=".\\FilteredPreprocessed\\")
+    obj.tf_idf()
     # obj.label()
-    print(obj.vocab)
+    # print(obj.vocab)
+    
+    
     # print('.'*100)
-    # print(obj.vec)
+    print(obj.vec)
     # print('.'*100)
-    # print(obj.result)
+    print(obj.result)
     # print('.'*100)
     # print(obj.label_dict)
 
