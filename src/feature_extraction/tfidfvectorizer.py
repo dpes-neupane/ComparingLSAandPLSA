@@ -94,14 +94,14 @@ TfidfVectorizer is a class that following methods:
             # print(dirs)
             fol= len(dirs)
             for i in range(fol):  # [education,health,sports,.....]
-                print(dirs[i])
+                # print(dirs[i])
                 # if directory
-                # print(f"{i} of {fol} {dirs[i]}                     ", end="\r")
+                print(f"{i} of {fol} {dirs[i]}                     ", end="\r")
                 if os.path.isdir(dirs[i]):
                     files = os.listdir(dirs[i])
-                    print(files[0], len(files))
+                    # print(files[0], len(files))
                     for filename in files:
-                        print(filename)
+                        # print(filename)
                         with open(os.path.join(dirs[i], filename), encoding='utf-8') as fp:
 
                             # list of an article
@@ -158,7 +158,7 @@ TfidfVectorizer is a class that following methods:
                             #         row.append(cnt[wordlist[x]])
                             #     else:
                             #         row.append(0)
-                            
+
                         hfcyvy ='\\'
                         print(f'{isnumber} left of {isnumbertotal} of {dirs[i].split(hfcyvy)[2]}                    ', end="\r")
                         isnumber-=1
@@ -166,7 +166,7 @@ TfidfVectorizer is a class that following methods:
 
 
         # numpy array of document-term matrix
-        self.vec=np.array(mat)
+        self.vec=np.array(mat, dtype=np.float32)
 
 
     def tf_idf(self):
@@ -181,7 +181,7 @@ TfidfVectorizer is a class that following methods:
 
             tf-idf = tf * idf
         '''
-        tf= self.vec/self.vec.sum(axis=1)[:,np.newaxis]
+        tf= (self.vec/self.vec.sum(axis=1)[:,np.newaxis])
 
         idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
 
@@ -196,8 +196,8 @@ if __name__ == "__main__":
     obj.tf_idf()
     # obj.label()
     # print(obj.vocab)
-    
-    
+
+
     # print('.'*100)
     print(obj.vec)
     # print('.'*100)
