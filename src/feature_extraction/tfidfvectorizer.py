@@ -181,11 +181,13 @@ TfidfVectorizer is a class that following methods:
 
             tf-idf = tf * idf
         '''
-        tf= (self.vec/self.vec.sum(axis=1)[:,np.newaxis])
+        self.vec= (self.vec/self.vec.sum(axis=1)[:,np.newaxis])
 
         idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
 
-        self.result=tf*idf
+        idf=idf.astype(np.float32, copy=False)
+
+        self.vec=self.vec*idf
 
 
 if __name__ == "__main__":
