@@ -166,7 +166,7 @@ TfidfVectorizer is a class that following methods:
 
 
         # numpy array of document-term matrix
-        self.vec=np.array(mat, dtype=np.float32)
+        self.vec=np.array(mat)
 
 
     def tf_idf(self):
@@ -185,7 +185,7 @@ TfidfVectorizer is a class that following methods:
 
         idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
 
-        idf=idf.astype(np.float32, copy=False)
+        # idf=idf.astype(np.float32, copy=False)
 
         self.vec=self.vec*idf
 
