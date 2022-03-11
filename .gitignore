@@ -131,7 +131,7 @@ dmypy.json
 .vscode/*
 
 tfidf.pkl
-
+pickle_files/
 
 vocab.pkl
 csr.pkl
