@@ -166,10 +166,10 @@ TfidfVectorizer is a class that following methods:
 
 
         # numpy array of document-term matrix
-        self.vec=np.array(mat)
+        self.vec=np.array(mat, dtype=np.float32)
 
 
-    def tf_idf(self):
+    def tf_idf(self,vec=None):
         '''
             term-frequency (tf) =   (Number of repeatition of words in document)
                                     --------------------------------------------
@@ -181,13 +181,20 @@ TfidfVectorizer is a class that following methods:
 
             tf-idf = tf * idf
         '''
-        self.vec= (self.vec/self.vec.sum(axis=1)[:,np.newaxis])
+        if vec is not None:
+            vec = vec/vec.sum(axis=1)[:,np.newaxis]
+            idf = np.log(vec.shape[0]/np.count_nonzero(vec,axis=0))
+            idf = idf.astype(np.float32, copy=False)
+            vec = vec*idf 
+            return vec
+        else:
+            self.vec= (self.vec/self.vec.sum(axis=1)[:,np.newaxis])
 
-        idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
+            idf=np.log(self.vec.shape[0]/np.count_nonzero(self.vec,axis=0))
 
-        # idf=idf.astype(np.float32, copy=False)
+            idf=idf.astype(np.float32, copy=False)
 
-        self.vec=self.vec*idf
+            self.vec=self.vec*idf
 
 
 if __name__ == "__main__":
