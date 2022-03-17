@@ -1,0 +1,102 @@
+\begin{thebibliography}{10}
+
+\bibitem{wikipedia2021}
+``Document classification.''
+  \url{https://en.wikipedia.org/wiki/Document_classification}, Jun 2021.
+
+\bibitem{baeza1999modern}
+R.~Baeza-Yates, B.~Ribeiro-Neto, {\em et~al.}, {\em Modern information
+  retrieval}, vol.~463.
+\newblock ACM press New York, 1999.
+
+\bibitem{salton1975vector}
+G.~Salton, A.~Wong, and C.-S. Yang, ``A vector space model for automatic
+  indexing,'' {\em Communications of the ACM}, vol.~18, no.~11, pp.~613--620,
+  1975.
+
+\bibitem{schutze2008introduction}
+H.~Sch{\"u}tze, C.~D. Manning, and P.~Raghavan, {\em Introduction to
+  information retrieval}, vol.~39.
+\newblock Cambridge University Press Cambridge, 2008.
+
+\bibitem{deerwester1990indexing}
+S.~Deerwester, S.~T. Dumais, G.~W. Furnas, T.~K. Landauer, and R.~Harshman,
+  ``Indexing by latent semantic analysis,'' {\em Journal of the American
+  society for information science}, vol.~41, no.~6, pp.~391--407, 1990.
+
+\bibitem{landauer1998introduction}
+T.~K. Landauer, P.~W. Foltz, and D.~Laham, ``An introduction to latent semantic
+  analysis,'' {\em Discourse processes}, vol.~25, no.~2-3, pp.~259--284, 1998.
+
+\bibitem{cambridge2009online}
+U.~Cambridge, {\em Online edition (c) 2009 Cambridge UP An Introduction to
+  Information Retrieval Christopher D}, ch.~Matrix Decomposition and Latent
+  Semantic Indexing, pp.~403--419.
+\newblock Manning Prabhakar Raghavan Hinrich Sch{\"u}tze Cambridge University
+  Press, 2009.
+
+\bibitem{hofmann2013probabilistic}
+T.~Hofmann, ``Probabilistic latent semantic analysis,'' {\em arXiv preprint
+  arXiv:1301.6705}, 2013.
+
+\bibitem{aggarwal2015data}
+C.~C. Aggarwal, {\em Data mining: the textbook}.
+\newblock Springer, 2015.
+
+\bibitem{pu2006short}
+Q.~Pu and G.-W. Yang, ``Short-text classification based on ica and lsa,'' in
+  {\em International Symposium on Neural Networks}, pp.~265--270, Springer,
+  2006.
+
+\bibitem{cardoso2003empirical}
+A.~Cardoso-Cachopo and A.~L. Oliveira, ``An empirical comparison of text
+  categorization methods,'' in {\em International Symposium on String
+  Processing and Information Retrieval}, pp.~183--196, Springer, 2003.
+
+\bibitem{krishnamurthi2017including}
+K.~Krishnamurthi, V.~R. Panuganti, and V.~V. Bulusu, ``Including category
+  information as supplements in latent semantic analysis of hindi documents,''
+  {\em International Journal of Computational Science and Engineering},
+  vol.~15, no.~1-2, pp.~138--145, 2017.
+
+\bibitem{krishnamurthi2016understanding}
+K.~Krishnamurthi, V.~R. Panuganti, and V.~V. Bulusu, ``Understanding document
+  semantics from summaries: a case study on hindi texts,'' {\em ACM
+  Transactions on Asian and Low-Resource Language Information Processing
+  (TALLIP)}, vol.~16, no.~1, pp.~1--20, 2016.
+
+\bibitem{nipu2017machine}
+A.~S. Nipu and U.~Pal, ``A machine learning approach on latent semantic
+  analysis for ambiguity checking on bengali literature,'' in {\em 2017 20th
+  International Conference of Computer and Information Technology (ICCIT)},
+  pp.~1--4, IEEE, 2017.
+
+\bibitem{sitaula2021vector}
+C.~Sitaula, A.~Basnet, and S.~Aryal, ``Vector representation based on a
+  supervised codebook for nepali documents classification,'' {\em PeerJ
+  Computer Science}, vol.~7, p.~e412, 2021.
+
+\bibitem{shahi2018nepali}
+T.~B. Shahi and A.~K. Pant, ``Nepali news classification using na{\"\i}ve
+  bayes, support vector machines and neural networks,'' in {\em 2018
+  International Conference on Communication Information and Computing
+  Technology (ICCICT)}, pp.~1--5, IEEE, 2018.
+
+\bibitem{kafle2016improving}
+K.~Kafle, D.~Sharma, A.~Subedi, and A.~K. Timalsina, ``Improving nepali
+  document classification by neural network,'' in {\em Proceedings of IOE
+  Graduate Conference}, pp.~317--322, 2016.
+
+\bibitem{subba2019nepali}
+S.~Subba, N.~Paudel, and T.~B. Shahi, ``Nepali text document classification
+  using deep neural network,'' {\em Tribhuvan University Journal}, vol.~33,
+  no.~1, pp.~11--22, 2019.
+
+\bibitem{singh2018nepali}
+O.~Singh, ``Nepali multi-class text classification,'' 2018.
+
+\bibitem{salton1983introduction}
+G.~Salton and M.~J. McGill, {\em Introduction to modern information retrieval}.
+\newblock mcgraw-hill, 1983.
+
+\end{thebibliography}

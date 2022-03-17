@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+\usepackage{times}
+\usepackage{url}
+\usepackage {geometry}
+\geometry {
+    a4paper, 
+    left = 1.25in,
+    right= 1 in,
+    bottom = 1 in,
+    right = 1 in,
+    top = 1in
+}
+\title{My first document}
+\date{2021-07-12}
+\author{Dipesh Neupane, Nirmal Gelal, Badri Thapa}
+\begin{document}
+\pagenumbering{gobble}
+    \maketitle
+    \newpage
+    \pagenumbering{arabic}
+    
+    \section{Introduction}
+    \paragraph{}
+        Humans have used text as a form of communication of their thoughts and knowledge from ancient times. All over the world, most civilizations have developed some form of textual symbols 
+        (alphabets), and  their own grammers.
+        And Nepal is no exception to that. Nepali language evolved from Sanskrit, and the 36 consonants, 13 vowels and 10 numerals also known as Devanagari found in Nepali writings is also found 
+        in the Sanskrit language. 
+        These characters have their own variants, along with some special characters. All in all, Nepali language is a rich and complicated language with interesting grammer and symbols to write it with.
+        
+        Nepali writings has had a significant rise in internet in recent times. With that, there is need of a automatic processing of such writings.         
+        So, in this project, we will try to classify the news articles in Nepali language into different topics (category) and make a model that can classify the news article into some category 
+        and also identify keywords associated with the topic. 
+        It is also a problem of document classification which is the task of assigning a document to one or more categories. It is a supervised learning task. 
+
+        The idea of document classification problem is to assign the document to one or more class. The class maybe the abstract topic a collection of document represents. The topic may be philosophical, or, scientifically represetative
+        of the collection of the documents. There are many techinques for autoamtic classification of documents, such as, Expectation Maximization, Naive Bayes Classifier, TF-IDF, LSA, Support Vector Machines,
+         neural networks, etc, and are used in spam filtering, email routing, language identification\cite{wikipedia2021}. 
+        
+
+        In order to cluster and then classify the document, we have to have some kind of way to represent the document into a mathematical form. There are some ways to represent documents and the three classic models are, namely, 
+        Boolean, the vector, and the probabilistic models\cite{baeza1999modern}. In our project, we have opted for the use of the vector space model \cite{salton1975vector}. These vectors are formed using the terms \emph{t} occurring in the documents 
+        as the elements of the document vector. The simplistic approach to represent the document and the ability to do partial matching and calculating the degree
+        of similarity between documents makes it a very optimal choice. 
+        \paragraph{}Formally, if \emph{t} different terms are present in the document and each document is represented by a t-dimensional vector, then 
+        \begin{center}
+           $~{D_i = \{d_{i1}, d_{i2},....,d_{it}\}}$, \\
+        \end{center} 
+        $~{d_{ij}}$ representing the "weight" of the jth term\cite{salton1975vector}.
+
+        And, the similarity between the two documents can be then calculated as:
+            \begin{center}
+                $~{   sim(d_j, q) =  \frac{  \vec{d_j} \cdot \vec{q}  } {|\vec{d_j}|  \times |\vec{q}|  }  }$
+
+               \hspace{4.5cm} ${= \frac{\sum_{i=1}^{t}w_{i,j}\times w_{i,q}} {\sqrt{\sum_{i=1}^{t}w_{i,q}^2} \times \sqrt{\sum_{i=1}^{t}w_{i,j}^2}}}$
+            \end{center}
+            where, \textit{${d_j}$} and \emph{q} are the two documents as t-dimensional vectors, ${w_{i,j}}$ and ${w_{i,q}}$ are the weights of the terms, and the calculated value is known 
+            as the \emph{cosine of the angle} between these vectors\cite{baeza1999modern}. And the ${|\vec{d_j}|}$ and ${|\vec{q}|}$ are the norms of the documents.
+        
+        All this can be possible to be done only after the documents are subjected to the technique of Latent Semantic Analysis (LSA)\cite{deerwester1990indexing} 
+        which reduces the
+        original term-document matrix \textbf{D} into a filtered term-document matrix. Here, the term-documents matrix can be the collection of vector of the documents. 
+        The vector may be a row or a column of the matrix. 
+        This method uses a mathematical technique called \emph{Singular Value Decomposition} to identify patterns in the relationships between the terms and 
+        concepts contained in the collection of texts. It represents the meaning of a word as a kind of average of the meaning of all the passages in which it appears, 
+        and the meaning of a passage as a kind of average of the meaning of all the words it contains\cite{landauer1998introduction}. 
+        This method takes a large matrix (combination of vectors) of term-document data and constructs a "semantic" space wherein terms and documents that are closely associated 
+        are placed near one another. 
+        
+        The SVD decomposes the original matrix into three matices: a document-topic matrix, and Singular matrix, and a term-topic matrix. 
+        The SVD for a matrix(rectangular) \textbf{D} can be given as:
+        \begin{center}
+            ${\mathbf{D} = \mathbf{U} \Sigma  \mathbf{V^T}}$
+        \end{center}
+        where \textbf{U} with ${t \times r}$ is the terms-topic matrix, ${\Sigma}$ with ${r \times r}$size is the array of Singular values and 
+        the ${\mathbf{V^T}}$ with ${r \times d}$ is the document-terms matrix. 
+        The singular values show the relative importance of our topic. \textbf{U} and ${\mathbf{V^T}}$ are orthonormal matrices and the ${\Sigma}$ is a diagonal matrix which has values 
+        in descending order in the diagonal.
+        Intuitively, in linear algebra, the three matrices rotate (\textbf{U} and ${\mathbf{V^T}}$) and scale (${\Sigma}$) the space and is the same as doing 
+        the transformation with \textbf{D}. 
+        The process of decomposing into the three matrices will not be discussed. Although, we have to discuss the essence of SVD, that is, the dimensionality reduction. 
+        Since the singular values describe how each latent concept explains the variance in our data, we can choose the number of values (concepts) so that we can approximate the 
+        original matrix with minimal error. This will be mapped into a lower-dimensional space. They will be a lower-dimensional approximation of the higher-dimensional space. 
+        The reason for this to do is that, the original matrix may be too large, sparse and noisy. And it assumes that after rank lowering that some dimensions are combined and
+        depend on more than one term. This will lead to merge the dimensions associated with terms that have similar meanings. And conversely, the terms that have opposite or no 
+        association with them will either cancel out, or, at least, be smaller than that with similar meanings.
+        This process of selecting the \emph{k} largest singular values, and their corresponding singular vectors from \textbf{U} and ${\mathbf{V^T}}$ is known as the dimensionality reduction step. 
+        Here, the number of singular values we choose will be directly related to the number of concepts we want to be separated and defined.
+        This finaly step will lead to many things. First, the comparison between the document will occur in the low-dimensional space. The terms related with each other will be found out. 
+        The importance of the term for the concept can be seen as well. Hidden word association can be analyzed as well.   
+        Overall, we can do the following steps for low rank approximation using SVD:\\
+        1. Given \textbf{D}, construct its SVD in the form as ${\mathbf{D} = \mathbf{U} \Sigma  \mathbf{V^T}}$.\\
+        2. Derive from ${\Sigma}$ the matrix ${\Sigma_k}$ formed by taking the first \emph{k} singular values and replacing others with 0.\\
+        3. Compute and output ${\mathbf{D_k} = \mathbf{U} \Sigma_k  \mathbf{V^T}}$ as the rank-k approximation to \textbf{D}.\cite{cambridge2009online}
+       
+
+        
+    \section{Problem Statement}
+        Document Classification and topic modeling is a classic problem in machine learning. It has had massive research and there have been many procedures described and
+        constructed to discover solutions to such problems. And Latent Semantic Analysis is one of those techniques that attempts to cluster the documents in an unsupervised 
+        way. It finds latent concepts between documents by lowering the dimensions of the given documents and finding the hidden "semantics". It is one of the oldest algorithms
+        for clustering and is quite powerful as well. It is simplistic to use and the works well with all kinds of languages. It generalizes the surface intformation and captures teh mutual 
+        implications of words and passages. It finds the hidden "picture" in the text. It has a powerful mathematical analysis that is capable of correctly inferring much deeper 
+        relations. It is a much better predictor of human meaning-based judgments and performance \cite{landauer1998introduction}.
+        
+        LSA also induces everything from the text alone. It also allows to closely approximate the human judgments of meaning similarity between words and documents are 
+        represented as linear combinations of orthogonal feauteres. 
+    
+    \section{Objectives}
+        The aim of this project is find out if LSA or PLSA can be good tool to cluster the Nepali news articles topic-wise and find the keywords for any such topics. Not only 
+        we want to find the better model for classification of Nepali news articles, we also want to compare them and want to show the results in the form of a webpage.
+
+
+    \section{Methodology}
+        \subsection{Requirement Identification}
+            \subsubsection{Literature Review}
+                \paragraph{}
+                    Several notable papers have been written in classification of texts in Nepali and other languages. Only in recent times the classification of Nepali news articles have been done.
+                    All have mostly used their own datasets by scrapping the online news portals (in case of Nepali news). They are mostly supervised. The use of PLSA in Nepali language has still not been found.
+                    
+                    \paragraph{Works related to other language}
+                            Using Latent Semantic Analysis, classification tasks such as \cite{pu2006short} and \cite{cardoso2003empirical}........add some other.
+
+                            \cite{pu2006short} used LSA as a data preprocessing method, and then used Independent Component Analysis (ICA) for the classification. They showed that 
+                            using ICA and LSA together provides better classification for Chinese short-texts rather than using ICA alone. 
+                            
+                            \cite{cardoso2003empirical} compared the LSA, SVM, and k-Nearest neighbor variations of the LSA models and showed that SVMs and k-NN LSA performed better 
+                            than the other methods that they had compared to. They had evaluated the performance of the models using Mean Reciprocal Rank and argued that it is very well
+                            suited evaluation measure for text categorization tasks and the tests were performed on two different datasets (both in English language). They also showed that LSA performs better 
+                            when it has many training examples. They also showed that the number of terms in the dataset do not influence the models' performance. 
+
+                            \cite{krishnamurthi2017including} used a modification of the LSA and compared with the traditional LSA. The modified LSA, called
+                            SLSA (supplemented latent semantic analysis) added extra information (the label of the document) in the original document matrix 
+                            and performed SVD on it. It was shown that this added information had increased the accuracies on classification tasks by 1.14\%, 1.3\% 
+                            and 1.63\% for various term weighting schemes (tf, idf, tf-idf). The classification task was done on Hindi texts. 
+
+                            \cite{krishnamurthi2016understanding} also used another modification of LSA by providing supplementary information. They provided 
+                            document category and domain information as supplementary information. They showed an improvement of 4.7\% - 6.2\% using this modification which shows that 
+                            summary of the text can be additional informaion that can be fed into the model to make it better.
+
+                            \cite{nipu2017machine} used LSA for ambiguity checking in Bengali literature. They showed that the Vector Space Model and LSA gives generally reasonable
+                            otucome for Bengali language structure and sentence structure. 
+                             
+                    \paragraph{Works related to Nepali Language}
+
+                        In Nepali Language, several works have been done, such as, 
+                        \cite{sitaula2021vector,shahi2018nepali,kafle2016improving,subba2019nepali,singh2018nepali}. \cite{sitaula2021vector} proposed their own method where they used probability-based
+                        word embedding. And they showed that their method was the best classifier among other models. 
+                        
+                        \cite{shahi2018nepali} used TF-IDF method for feature extraction of Nepali news documents and classified using Naive Bayes, SVM and Neural Networks. 
+
+                        \cite{kafle2016improving} performed a comparative study of various different document representation methods, including LSA, TF-IDF and word2vec. They showed that the accuracy
+                        of the TF-IDF with LSI model is far superior than those other two models. 
+
+                        \cite{subba2019nepali} used Bag of Words\cite{salton1983introduction} of the Nepali news articles to train the deep learning network. \cite{singh2018nepali} used TF-IDF for 
+                        feature extraction of various Nepali texts and built a model using Logistic Regression, SVM, Multinomial Naive bayes, Bernoulli Naive Bayes, Nearest neighbor and some others as well.
+
+                        In summary, we could find a lot of works done in both Nepali and other language and their were a lot of different methods applied. LSA had been extensively used in 
+                        other languages but in Nepali texts, it was a rarity. Works in Nepali used TF-TDF and Bag of Words as a feature extraction and had a wide use of neural networks and other 
+                        supervised classification techniques. 
+
+
+
+                    
+
+    \section{TO be written}  
+    Introduction
+        Topic Modeling
+        Document classification
+        Text Mining
+        Vector Space Modeling
+        LSA
+            SVD
+        Plsa
+    Problem Statement
+        Why LSA and Plsa
+
+    Objectives 
+        To analyze LSA and Plsa
+    
+    Rquirements
+    Functional
+        Use-case diagram
+    Non-Functional
+    Feasibility
+
+    Technical 
+    Programming Language
+    Framework[1]
+
+    \bibliography{references}
+    \bibliographystyle{ieeetr}
+\end{document}
