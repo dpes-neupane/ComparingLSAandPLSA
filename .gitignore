@@ -132,7 +132,7 @@ dmypy.json
 
 tfidf.pkl
 dterm_pickle_files/
-
+# pickles
 vocab.pkl
 csr.pkl
 .DS_Store
@@ -140,3 +140,4 @@ tfidf_pickle_files/
 pickles
 Preprocessed2
 tfidf_pickle_files/
+pickles_files/
