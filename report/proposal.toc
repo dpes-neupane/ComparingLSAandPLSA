@@ -19,7 +19,7 @@
 \contentsline {paragraph}{}{4}{section*.11}%
 \contentsline {subsubsection}{Feature Extraction Details}{8}{section*.12}%
 \contentsline {subsubsection}{Machine Learning}{8}{section*.13}%
-\contentsline {paragraph}{Logistic Regression}{9}{section*.14}%
+\contentsline {paragraph}{Logistic Regression}{8}{section*.14}%
 \contentsline {paragraph}{Support Vector Machines}{9}{section*.15}%
 \contentsline {paragraph}{Random Forest Classifier}{9}{section*.16}%
 \contentsline {section}{\numberline {1.6}Project Roadmap}{9}{section.1.6}%
@@ -27,14 +27,14 @@
 \contentsline {section}{\numberline {2.1}Literature Review}{10}{section.2.1}%
 \contentsline {paragraph}{}{10}{section*.17}%
 \contentsline {paragraph}{Works related to other language}{10}{section*.18}%
-\contentsline {paragraph}{Works related to Nepali Language}{11}{section*.19}%
+\contentsline {paragraph}{Works related to Nepali Language}{10}{section*.19}%
 \contentsline {chapter}{\numberline {3}System Analysis}{12}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Requirement Analysis}{12}{section.3.1}%
 \contentsline {paragraph}{Functional Requirement}{12}{section*.20}%
 \contentsline {paragraph}{Non-functional Requirement}{13}{section*.21}%
 \contentsline {section}{\numberline {3.2}Feasibility Study}{13}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Technical Feasibility}{13}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Economic Feasibility}{14}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}Economic Feasibility}{13}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Operational Feasiblity}{14}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Project Timeline}{14}{subsection.3.2.4}%
 \contentsline {chapter}{\numberline {4}System Design}{15}{chapter.4}%
