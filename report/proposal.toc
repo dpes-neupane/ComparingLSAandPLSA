@@ -19,7 +19,7 @@
 \contentsline {paragraph}{}{4}{section*.11}%
 \contentsline {subsubsection}{Feature Extraction Details}{8}{section*.12}%
 \contentsline {subsubsection}{Machine Learning}{8}{section*.13}%
-\contentsline {paragraph}{Logistic Regression}{8}{section*.14}%
+\contentsline {paragraph}{Logistic Regression}{9}{section*.14}%
 \contentsline {paragraph}{Support Vector Machines}{9}{section*.15}%
 \contentsline {paragraph}{Random Forest Classifier}{9}{section*.16}%
 \contentsline {section}{\numberline {1.6}Project Roadmap}{9}{section.1.6}%
