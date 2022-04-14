@@ -1,0 +1,52 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \textbf {A single word which should be three different words}}}{3}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textbf {A single word which should be two different words}}}{3}{figure.1.2}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces \textbf {A single which should be many different words}}}{3}{figure.1.3}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces \textbf {(a) and (b) is the same word but has different spellings making them distinct and same with (c) and (d)}}}{4}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{4}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{4}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{4}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{4}{figure.1.4}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces \textbf {The vector representation of document.}}}{4}{figure.1.5}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces \textbf {The figure shows how the document-term matrix is decomposed into its subsequent three low rank matrices. The shaded portion shows how much values can be truncated and approximate the original matrix. Note: shaded portion is taken to approximate the original matrix \textbf {D}.}}}{6}{figure.1.6}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces \textbf {The figures shows how the latent topic \emph {z} can make a conditional independence between the document \emph {d} and the words occurring in the document \emph {w}. It is the graphical representation of the aspect model.} }}{7}{figure.1.7}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces \textbf {The matrices can be representation of the probabilistic latent semantic analysis.}}}{8}{figure.1.8}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {Use-case diagram of the proposed system.}}}{13}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {The gantt-chart for building the proposed system.}}}{14}{figure.3.2}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \textbf {The architecture of the Text Classification}}}{15}{figure.4.1}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textbf {Text for testing for document term matrix}}}{17}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \textbf { Document term matrix for the given test text}}}{17}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces \textbf {Confusion matrix}}}{18}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \textbf {Confusion matrix for LSA of set 3 and n = 30}}}{19}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \textbf {Confusion matrix for PLSA of set 3}}}{20}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \textbf {Score for LSA n=100 (Set0)}}}{20}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \textbf {Score for LSA n=100 (Set1)}}}{20}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces \textbf {Score for LSA n=100 (Set2)}}}{21}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces \textbf {Score for LSA n=100 (Set3)}}}{21}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces \textbf {Score for LSA n=50 (Set0)}}}{21}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces \textbf {Score for LSA n=50 (Set1)}}}{21}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces \textbf {Score for LSA n=50 (Set2)}}}{21}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces \textbf {Score for LSA n=50 (Set3)}}}{21}{figure.5.13}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces \textbf {Score for LSA n=30 (Set0)}}}{22}{figure.5.14}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces \textbf {Score for LSA n=30 (Set1)}}}{22}{figure.5.15}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces \textbf {Score for LSA n=30 (Set2)}}}{22}{figure.5.16}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces \textbf {Score for LSA n=30 (Set3)}}}{22}{figure.5.17}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces \textbf {Score for LSA n=12 (Set0)}}}{22}{figure.5.18}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces \textbf {Score for LSA n=12 (Set1)}}}{22}{figure.5.19}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces \textbf {Score for LSA n=12 (Set2)}}}{23}{figure.5.20}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces \textbf {Score for LSA n=12 (Set3)}}}{23}{figure.5.21}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces \textbf {Score for PLSA (Set0)}}}{23}{figure.5.22}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces \textbf {Score for PLSA (Set1)}}}{23}{figure.5.23}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces \textbf {Score for PLSA (Set1)}}}{23}{figure.5.24}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces \textbf {Score for PLSA (Set3)}}}{23}{figure.5.25}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \textbf {Preprocessing Steps}}}{27}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces \textbf {TF-IDF}}}{28}{figure.7.2}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces \textbf {Model}}}{29}{figure.7.3}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces \textbf {Code of PLSA}}}{30}{figure.7.4}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces \textbf {Code of LSA}}}{30}{figure.7.5}%

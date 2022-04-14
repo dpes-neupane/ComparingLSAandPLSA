@@ -1,37 +1,37 @@
-\contentsline {paragraph}{}{i}{section*.1}%
-\contentsline {paragraph}{}{ii}{section*.2}%
-\contentsline {paragraph}{}{iii}{section*.3}%
-\contentsline {paragraph}{}{iv}{section*.4}%
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {paragraph}{}{i}{paragraph*.1}%
+\contentsline {paragraph}{}{ii}{paragraph*.2}%
+\contentsline {paragraph}{}{iii}{paragraph*.3}%
+\contentsline {paragraph}{}{iv}{paragraph*.4}%
+\contentsline {chapter}{\numberline {1} Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}%
-\contentsline {paragraph}{}{1}{section*.6}%
+\contentsline {paragraph}{}{1}{paragraph*.7}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Objectives}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Objectives}{1}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Scope and Limitations}{2}{section.1.4}%
 \contentsline {subsection}{\numberline {1.4.1}Scope}{2}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}Limitations}{2}{subsection.1.4.2}%
 \contentsline {section}{\numberline {1.5}Development Methodology}{2}{section.1.5}%
-\contentsline {subsubsection}{Dataset Collection}{2}{section*.7}%
-\contentsline {subsubsection}{Preprocessing}{2}{section*.8}%
+\contentsline {subsubsection}{Dataset Collection}{2}{subsubsection*.8}%
+\contentsline {subsubsection}{Preprocessing}{2}{subsubsection*.9}%
 \contentsline {subsection}{\numberline {1.5.1}Exploring the preprocessed Data}{3}{subsection.1.5.1}%
-\contentsline {subsubsection}{Data Preparation}{4}{section*.9}%
-\contentsline {subsubsection}{Feature Extraction}{4}{section*.10}%
-\contentsline {paragraph}{}{4}{section*.11}%
-\contentsline {subsubsection}{Feature Extraction Details}{8}{section*.12}%
-\contentsline {subsubsection}{Machine Learning}{8}{section*.13}%
-\contentsline {paragraph}{Logistic Regression}{9}{section*.14}%
-\contentsline {paragraph}{Support Vector Machines}{9}{section*.15}%
-\contentsline {paragraph}{Random Forest Classifier}{9}{section*.16}%
+\contentsline {subsubsection}{Data Preparation}{3}{subsubsection*.10}%
+\contentsline {subsubsection}{Feature Extraction}{4}{subsubsection*.11}%
+\contentsline {paragraph}{}{4}{paragraph*.12}%
+\contentsline {subsubsection}{Feature Extraction Details}{8}{subsubsection*.13}%
+\contentsline {subsubsection}{Machine Learning}{8}{subsubsection*.14}%
+\contentsline {paragraph}{Logistic Regression}{8}{paragraph*.15}%
+\contentsline {paragraph}{Support Vector Machines}{9}{paragraph*.16}%
+\contentsline {paragraph}{Random Forest Classifier}{9}{paragraph*.17}%
 \contentsline {section}{\numberline {1.6}Project Roadmap}{9}{section.1.6}%
 \contentsline {chapter}{\numberline {2}Literature Study}{10}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Literature Review}{10}{section.2.1}%
-\contentsline {paragraph}{}{10}{section*.17}%
-\contentsline {paragraph}{Works related to other language}{10}{section*.18}%
-\contentsline {paragraph}{Works related to Nepali Language}{10}{section*.19}%
+\contentsline {paragraph}{}{10}{paragraph*.18}%
+\contentsline {paragraph}{Works related to other language}{10}{paragraph*.19}%
+\contentsline {paragraph}{Works related to Nepali Language}{10}{paragraph*.20}%
 \contentsline {chapter}{\numberline {3}System Analysis}{12}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Requirement Analysis}{12}{section.3.1}%
-\contentsline {paragraph}{Functional Requirement}{12}{section*.20}%
-\contentsline {paragraph}{Non-functional Requirement}{13}{section*.21}%
+\contentsline {paragraph}{Functional Requirement}{12}{paragraph*.21}%
+\contentsline {paragraph}{Non-functional Requirement}{13}{paragraph*.22}%
 \contentsline {section}{\numberline {3.2}Feasibility Study}{13}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Technical Feasibility}{13}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Economic Feasibility}{13}{subsection.3.2.2}%
@@ -39,8 +39,8 @@
 \contentsline {subsection}{\numberline {3.2.4}Project Timeline}{14}{subsection.3.2.4}%
 \contentsline {chapter}{\numberline {4}System Design}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}System Architecture}{15}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Process Design}{16}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Data Design}{16}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.2}Process Design}{15}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Data Design}{15}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Class Diagram}{16}{subsection.4.2.2}%
 \contentsline {chapter}{\numberline {5}Implementation and Testing}{17}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Implementation}{17}{section.5.1}%
@@ -48,7 +48,8 @@
 \contentsline {section}{\numberline {5.2}Testing}{17}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Unit Testing}{17}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}System Testing}{17}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Evaluation of the Model}{18}{subsection.5.2.3}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Recommendations}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Conclusion}{23}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Future Recommendations}{23}{section.6.2}%
+\contentsline {subsection}{\numberline {5.2.3}Evaluation of the Model}{17}{subsection.5.2.3}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Recommendations}{24}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Conclusion}{24}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Future Recommendations}{24}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Appendices}{27}{chapter.7}%
