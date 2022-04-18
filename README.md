@@ -1,3 +1,4 @@
-# NewsTextClassifierSeventhProject
-# Ongoing project
-coded till Document-matrix
+# LSA and PLSA Comparison 
+
+
+
